@@ -1,8 +1,13 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, StatusBar } from 'react-native';
 
 const App: React.FC = () => {
-  return <View />;
+  return (
+    <>
+      <StatusBar barStyle="light-content" backgroundColor="#28a745" />
+      <View />
+    </>
+  );
 };
 
 export default App;
