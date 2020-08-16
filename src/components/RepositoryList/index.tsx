@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { View, Text } from 'react-native';
-import { Repository } from '../../store/ducks/repositories/types';
+import { FlatList } from 'react-native';
 import { ApplicationState } from '../../store';
 
 import * as RepositoriesActions from '../../store/ducks/repositories/actions';
+
+import { Container, Repository } from './styles';
 
 const RepositoryList: React.FC = () => {
   const repositories = useSelector(
@@ -22,11 +23,13 @@ const RepositoryList: React.FC = () => {
   }, [dispatch]);
 
   return (
-    <View>
-      {repositories.map((repository: Repository) => (
-        <Text key={repository.id}>{repository.name}</Text>
-      ))}
-    </View>
+    <Container>
+      <FlatList
+        data={repositories}
+        renderItem={({ item }) => <Repository>{item.name}</Repository>}
+        keyExtractor={(item) => String(item.id)}
+      />
+    </Container>
   );
 };
 
