@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators, Dispatch } from 'redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
 import { View, Text } from 'react-native';
 import { Repository } from '../../store/ducks/repositories/types';
@@ -8,41 +7,27 @@ import { ApplicationState } from '../../store';
 
 import * as RepositoriesActions from '../../store/ducks/repositories/actions';
 
-interface StateProps {
-  repositories: Repository[];
-}
+const RepositoryList: React.FC = () => {
+  const repositories = useSelector(
+    (state: ApplicationState) => state.repositories.data,
+  );
+  const dispatch = useDispatch();
 
-interface DispatchProps {
-  loadRequest(): void;
-}
+  useEffect(() => {
+    async function loadRepositories() {
+      dispatch(RepositoriesActions.loadRequest());
+    }
 
-type Props = StateProps & DispatchProps;
+    loadRepositories();
+  }, [dispatch]);
 
-class RepositoryList extends Component<Props> {
-  componentDidMount() {
-    const { loadRequest } = this.props;
+  return (
+    <View>
+      {repositories.map((repository: Repository) => (
+        <Text key={repository.id}>{repository.name}</Text>
+      ))}
+    </View>
+  );
+};
 
-    loadRequest();
-  }
-
-  render() {
-    const { repositories } = this.props;
-
-    return (
-      <View>
-        {repositories.map((repository) => (
-          <Text key={repository.id}>{repository.name}</Text>
-        ))}
-      </View>
-    );
-  }
-}
-
-const mapStateToProps = (state: ApplicationState) => ({
-  repositories: state.repositories.data,
-});
-
-const mapDispatchToProps = (dispatch: Dispatch) =>
-  bindActionCreators(RepositoriesActions, dispatch);
-
-export default connect(mapStateToProps, mapDispatchToProps)(RepositoryList);
+export default RepositoryList;
