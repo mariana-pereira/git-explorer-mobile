@@ -1,12 +1,17 @@
 import React from 'react';
-import { Text } from 'react-native';
 
+import Header from '../../components/Header';
 import RepositoryList from '../../components/RepositoryList';
 
-// import { Container } from './styles';
+import { Container } from './styles';
 
 const Main: React.FC = () => {
-  return <RepositoryList />;
+  return (
+    <Container>
+      <Header />
+      <RepositoryList />
+    </Container>
+  );
 };
 
 export default Main;
