@@ -1,7 +1,8 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
 import { ApplicationState } from '../../store';
+import * as UserActions from '../../store/ducks/user/actions';
 
 import {
   Container,
@@ -19,7 +20,12 @@ import {
 } from './styles';
 
 const User: React.FC = () => {
+  const dispatch = useDispatch();
   const user = useSelector((state: ApplicationState) => state.user.data);
+
+  useEffect(() => {
+    dispatch(UserActions.loadRequest());
+  }, [dispatch]);
 
   return (
     <Container>
@@ -30,9 +36,9 @@ const User: React.FC = () => {
         }}
       />
       <UserInfo>
-        <Name>Mariana Pereira</Name>
-        <Login>mariana-pereira</Login>
-        <Bio>FullStack Developer | Node.js | ReactJS | React Native</Bio>
+        <Name>{user.name}</Name>
+        <Login>{user.login}</Login>
+        <Bio>{user.bio}</Bio>
         <Button>
           <ButtonText>See in Github</ButtonText>
         </Button>
@@ -40,15 +46,15 @@ const User: React.FC = () => {
       <UserStats>
         <StatsContainer>
           <StatsName>followers</StatsName>
-          <StatsValue>10</StatsValue>
+          <StatsValue>{user.followers}</StatsValue>
         </StatsContainer>
         <StatsContainer>
           <StatsName>following</StatsName>
-          <StatsValue>54</StatsValue>
+          <StatsValue>{user.following}</StatsValue>
         </StatsContainer>
         <StatsContainer>
           <StatsName>repos</StatsName>
-          <StatsValue>99</StatsValue>
+          <StatsValue>{user.public_repos}</StatsValue>
         </StatsContainer>
       </UserStats>
     </Container>

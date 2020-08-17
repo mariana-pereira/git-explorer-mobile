@@ -9,8 +9,9 @@ const INITIAL_STATE: UserState = {
     avatar_url: '',
     html_url: '',
     bio: '',
-    followers: '',
-    following: '',
+    followers: 0,
+    following: 0,
+    public_repos: 0,
   },
   error: false,
   loading: false,
@@ -32,7 +33,7 @@ const reducer: Reducer = (state = INITIAL_STATE, action) => {
         ...state,
         loading: false,
         error: true,
-        data: [],
+        data: {},
       };
     default:
       return state;
