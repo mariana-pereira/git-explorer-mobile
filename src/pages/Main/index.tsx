@@ -29,6 +29,8 @@ const Main: React.FC = () => {
           <InputContainer>
             <Input
               placeholder="Username"
+              returnKeyType="send"
+              onSubmitEditing={fetchUser}
               onChangeText={(text) => setUsername(text)}
             />
             <Button onPress={fetchUser}>

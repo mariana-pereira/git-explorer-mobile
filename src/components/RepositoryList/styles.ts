@@ -9,7 +9,7 @@ export const Container = styled.View`
   margin-top: 15px;
 `;
 
-export const Repository = styled.View`
+export const Repository = styled.TouchableOpacity`
   margin-bottom: 10px;
   border-bottom-color: rgba(0, 0, 0, 0.1);
   border-bottom-width: 2px;

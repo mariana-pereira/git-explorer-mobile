@@ -1,10 +1,32 @@
 import React from 'react';
-import { View } from 'react-native';
 
-// import { Container } from './styles';
+import {
+  Container,
+  Content,
+  RepositoryInfo,
+  Name,
+  Description,
+  InfoContainer,
+  Info,
+} from './styles';
 
 const Repository: React.FC = () => {
-  return <View />;
+  return (
+    <Container>
+      <Content>
+        <RepositoryInfo>
+          <Name>Tindev</Name>
+          <Description>
+            Aplicação desenvolvida durante a semana omnistack 8
+          </Description>
+          <InfoContainer>
+            <Info>Javascript</Info>
+            <Info>Updated 12 days ago</Info>
+          </InfoContainer>
+        </RepositoryInfo>
+      </Content>
+    </Container>
+  );
 };
 
 export default Repository;
