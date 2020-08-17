@@ -2,6 +2,7 @@ import styled from 'styled-components/native';
 
 export const Container = styled.ScrollView`
   flex: 1;
+  background: #ced4da;
 `;
 
 export const InputContainer = styled.View`
@@ -34,6 +35,6 @@ export const Button = styled.TouchableOpacity`
 
 export const Content = styled.View`
   align-items: center;
-  background: #ced4da;
   padding: 10px;
+  flex: 1;
 `;
