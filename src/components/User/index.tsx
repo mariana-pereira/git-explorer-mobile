@@ -1,4 +1,7 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+
+import { ApplicationState } from '../../store';
 
 import {
   Container,
@@ -16,6 +19,8 @@ import {
 } from './styles';
 
 const User: React.FC = () => {
+  const user = useSelector((state: ApplicationState) => state.user.data);
+
   return (
     <Container>
       <Avatar
