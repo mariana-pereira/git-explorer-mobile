@@ -6,7 +6,7 @@ import { ApplicationState } from '../../store';
 
 import * as RepositoriesActions from '../../store/ducks/repositories/actions';
 
-import { Container, Repository } from './styles';
+import { Container, Repository, Name, Language, Description } from './styles';
 
 const RepositoryList: React.FC = () => {
   const repositories = useSelector(
@@ -26,7 +26,15 @@ const RepositoryList: React.FC = () => {
     <Container>
       <FlatList
         data={repositories}
-        renderItem={({ item }) => <Repository>{item.name}</Repository>}
+        renderItem={({ item }) => (
+          <Repository>
+            <Name>{item.name}</Name>
+            <Language>Typescript</Language>
+            <Description>
+              Chat App API made with Node.js, Typescript, Express and MongoDB
+            </Description>
+          </Repository>
+        )}
         keyExtractor={(item) => String(item.id)}
       />
     </Container>
