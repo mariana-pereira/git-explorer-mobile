@@ -29,10 +29,8 @@ const RepositoryList: React.FC = () => {
         renderItem={({ item }) => (
           <Repository>
             <Name>{item.name}</Name>
-            <Language>Typescript</Language>
-            <Description>
-              Chat App API made with Node.js, Typescript, Express and MongoDB
-            </Description>
+            <Language>{item.language}</Language>
+            <Description>{item.description}</Description>
           </Repository>
         )}
         keyExtractor={(item) => String(item.id)}
