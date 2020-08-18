@@ -42,3 +42,43 @@ export const Info = styled.Text`
   color: #444;
   font-family: 'Roboto-Regular';
 `;
+
+export const Button = styled.TouchableOpacity`
+  width: 250px;
+  height: 28px;
+  border: 0;
+  border-radius: 6px;
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+  background-color: #28a745;
+`;
+
+export const ButtonText = styled.Text`
+  color: #fff;
+  font-family: 'Roboto-Bold';
+`;
+
+export const StatsContainer = styled.View`
+  margin-top: 30px;
+  width: 300px;
+  align-self: center;
+  justify-content: space-between;
+  flex-direction: row;
+`;
+
+export const Stats = styled.View`
+  align-items: center;
+  justify-content: center;
+`;
+
+export const Title = styled.Text`
+  color: #111;
+  font-family: 'Roboto-Bold';
+`;
+
+export const Value = styled.Text`
+  color: #444;
+  font-family: 'Roboto-Regular';
+`;
