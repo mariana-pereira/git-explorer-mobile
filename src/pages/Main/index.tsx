@@ -5,7 +5,6 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import * as UserActions from '../../store/ducks/user/actions';
 
-import Header from '../../components/Header';
 import User from '../../components/User';
 import RepositoryList from '../../components/RepositoryList';
 
@@ -24,11 +23,12 @@ const Main: React.FC = () => {
   return (
     <View style={{ flex: 1 }}>
       <Container>
-        <Header />
         <Content>
           <InputContainer>
             <Input
               placeholder="Username"
+              autoCapitalize="none"
+              autoCorrect={false}
               returnKeyType="send"
               onSubmitEditing={fetchUser}
               onChangeText={(text) => setUsername(text)}

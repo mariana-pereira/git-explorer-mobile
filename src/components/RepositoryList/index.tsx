@@ -13,8 +13,8 @@ const RepositoryList: React.FC = () => {
     (state: ApplicationState) => state.repositories.data,
   );
 
-  const handleNavigate = (repo: string) => {
-    navigation.navigate('Repository', { repo });
+  const handleNavigate = (repository: string) => {
+    navigation.navigate('Repository', { repository });
   };
 
   return (
