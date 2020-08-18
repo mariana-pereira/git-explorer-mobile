@@ -2,7 +2,7 @@ import styled from 'styled-components/native';
 
 export const Container = styled.View`
   width: 100%;
-  background-color: #fff;
+  background-color: ${(props) => props.theme.colors.card};
   margin-top: 10px;
   padding: 20px;
   border-radius: 10px;
@@ -16,7 +16,7 @@ export const Avatar = styled.Image`
   width: 100px;
   height: 100px;
   border-radius: 50px;
-  background-color: #444;
+  background-color: ${(props) => props.theme.colors.text};
 `;
 
 export const UserInfo = styled.View`
@@ -27,22 +27,22 @@ export const UserInfo = styled.View`
 
 export const Name = styled.Text`
   font-size: 18px;
-  color: #111;
-  font-family: 'Roboto-Bold';
+  color: ${(props) => props.theme.colors.textTitle};
+  font-family: ${(props) => props.theme.fonts.bold};
 `;
 
 export const Login = styled.Text`
   font-size: 16px;
   margin-top: 6px;
-  color: #444;
-  font-family: 'Roboto-Regular';
+  color: ${(props) => props.theme.colors.text};
+  font-family: ${(props) => props.theme.fonts.regular};
 `;
 
 export const Bio = styled.Text`
   margin-top: 10px;
-  color: #444;
+  color: ${(props) => props.theme.colors.text};
   max-width: 100%;
-  font-family: 'Roboto-Regular';
+  font-family: ${(props) => props.theme.fonts.regular};
 `;
 
 export const Button = styled.TouchableOpacity`
@@ -52,15 +52,15 @@ export const Button = styled.TouchableOpacity`
   border-radius: 6px;
   align-self: center;
   margin-top: 50px;
-  background-color: #28a745;
+  background-color: ${(props) => props.theme.colors.primary};
   align-items: center;
   justify-content: center;
 `;
 
 export const ButtonText = styled.Text`
-  color: #fff;
+  color: ${(props) => props.theme.colors.buttonText};
   font-size: 14px;
-  font-family: 'Roboto-Bold';
+  font-family: ${(props) => props.theme.fonts.bold};
 `;
 
 export const UserStats = styled.View`
@@ -77,12 +77,12 @@ export const StatsContainer = styled.View`
 
 export const StatsName = styled.Text`
   font-size: 18px;
-  color: #111;
-  font-family: 'Roboto-Bold';
+  color: ${(props) => props.theme.colors.textTitle};
+  font-family: ${(props) => props.theme.fonts.bold};
 `;
 
 export const StatsValue = styled.Text`
   font-size: 16px;
-  color: #444;
-  font-family: 'Roboto-Regular';
+  color: ${(props) => props.theme.colors.text};
+  font-family: ${(props) => props.theme.fonts.regular};
 `;
