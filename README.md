@@ -9,9 +9,9 @@
 > Explore the repositories of a Github user
 
 <p align="center">
-   <img src=".github/home-light.jpeg" width="300"/>
-   <img src=".github/home-dark.jpeg" width="300"/>
-   <img src=".github/search-dark.jpeg" width="300"/>
+   <img src=".github/home-light.jpeg" width="250"/>
+   <img src=".github/home-dark.jpeg" width="250"/>
+   <img src=".github/search-dark.jpeg" width="250"/>
 </p>
 
 ---
