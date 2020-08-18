@@ -3,14 +3,14 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import { Switch } from 'react-native';
 import { ThemeContext } from 'styled-components';
 
-import { Container, Title, Logo, Button } from './styles';
+import { Container, Title, Logo } from './styles';
 
 interface Props {
   toggleTheme(): void;
 }
 
 const Header: React.FC<Props> = ({ toggleTheme }) => {
-  const { colors, title } = useContext(ThemeContext);
+  const { colors } = useContext(ThemeContext);
 
   const [isEnabled, setIsEnabled] = useState(false);
   const toggleSwitch = () => {
