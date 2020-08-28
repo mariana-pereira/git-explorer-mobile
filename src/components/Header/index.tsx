@@ -10,13 +10,7 @@ interface Props {
 }
 
 const Header: React.FC<Props> = ({ toggleTheme }) => {
-  const { colors } = useContext(ThemeContext);
-
-  const [isEnabled, setIsEnabled] = useState(false);
-  const toggleSwitch = () => {
-    setIsEnabled((previousState) => !previousState);
-    toggleTheme();
-  };
+  const { colors, title } = useContext(ThemeContext);
 
   return (
     <Container>
@@ -27,8 +21,8 @@ const Header: React.FC<Props> = ({ toggleTheme }) => {
       <Switch
         trackColor={{ false: colors.primaryDark, true: colors.secondary }}
         thumbColor="#fff"
-        onValueChange={toggleSwitch}
-        value={isEnabled}
+        onValueChange={toggleTheme}
+        value={title === 'dark'}
       />
     </Container>
   );

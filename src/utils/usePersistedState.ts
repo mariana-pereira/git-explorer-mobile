@@ -5,18 +5,16 @@ import AsyncStorage from '@react-native-community/async-storage';
 type Response<T> = [T, Dispatch<SetStateAction<T>>];
 
 function usePersistedState<T>(key: string, initialState: T): Response<T> {
-  const [state, setState] = useState(() => {
-    let storageValue;
+  const [state, setState] = useState(initialState);
 
-    AsyncStorage.getItem(key).then((value) => {
-      storageValue = value;
-    });
+  useEffect(() => {
+    async function persistTheme() {
+      const value = await AsyncStorage.getItem(key);
 
-    if (storageValue) {
-      return JSON.parse(storageValue);
+      if (value) setState(JSON.parse(value));
     }
-    return initialState;
-  });
+    persistTheme();
+  }, [initialState, key]);
 
   useEffect(() => {
     AsyncStorage.setItem(key, JSON.stringify(state));
