@@ -1,8 +1,7 @@
 import styled from 'styled-components/native';
 
-export const Container = styled.View`
-  height: 100%;
-  width: 100%;
+export const Container = styled.SafeAreaView`
+  flex: 1;
   background: ${(props) => props.theme.colors.card};
   border-radius: 10px;
   padding: 10px 20px;

@@ -1,17 +1,17 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
 import { FlatList } from 'react-native';
 
-import { ApplicationState } from '../../store';
+import { Repository as RepositoryI } from '../../store/ducks/repositories/types';
 
 import { Container, Repository, Name, Language, Description } from './styles';
 
-const RepositoryList: React.FC = () => {
+interface RepositoriesProps {
+  repositories: RepositoryI[];
+}
+
+const RepositoryList: React.FC<RepositoriesProps> = ({ repositories }) => {
   const navigation = useNavigation();
-  const repositories = useSelector(
-    (state: ApplicationState) => state.repositories.data,
-  );
 
   const handleNavigate = (repository: string) => {
     navigation.navigate('Repository', { repository });
