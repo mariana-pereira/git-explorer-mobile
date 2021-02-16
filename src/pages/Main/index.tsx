@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { View } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import * as UserActions from '../../store/ducks/user/actions';
+import * as RepositoriesActions from '../../store/ducks/repositories/actions';
+import { ApplicationState } from '../../store';
 
 import User from '../../components/User';
 import RepositoryList from '../../components/RepositoryList';
@@ -16,7 +18,6 @@ import {
   Button,
   Error,
 } from './styles';
-import { ApplicationState } from '../../store';
 
 const Main: React.FC = () => {
   const dispatch = useDispatch();
@@ -24,7 +25,20 @@ const Main: React.FC = () => {
   const [visible, setVisible] = useState(false);
   const [inputError, setInputError] = useState('');
 
+  const user = useSelector((state: ApplicationState) => state.user.data);
   const error = useSelector((state: ApplicationState) => state.user.error);
+  const repositories = useSelector(
+    (state: ApplicationState) => state.repositories.data,
+  );
+
+  useEffect(() => {
+    function loadRepositories() {
+      if (!user?.login) return;
+      dispatch(RepositoriesActions.loadRequest(user.login));
+    }
+
+    loadRepositories();
+  }, [dispatch, user]);
 
   function fetchUser() {
     if (!username) {
