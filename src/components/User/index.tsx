@@ -1,8 +1,6 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React from 'react';
 
-import { ApplicationState } from '../../store';
-import * as RepositoriesActions from '../../store/ducks/repositories/actions';
+import { User as UserI } from '../../store/ducks/user/types';
 
 import {
   Container,
@@ -19,44 +17,39 @@ import {
   StatsValue,
 } from './styles';
 
-const User: React.FC = () => {
-  const dispatch = useDispatch();
-  const user = useSelector((state: ApplicationState) => state.user.data);
+interface UserProps {
+  user: UserI;
+}
 
-  useEffect(() => {
-    dispatch(RepositoriesActions.loadRequest(user?.login));
-  }, [dispatch, user]);
-
+const User: React.FC<UserProps> = ({ user }) => {
   return (
-    <Container>
-      {user && (
-        <>
-          <Avatar source={{ uri: user.avatar_url }} />
-          <UserInfo>
-            <Name>{user.name}</Name>
-            <Login>{user.login}</Login>
-            <Bio>{user.bio}</Bio>
-            <Button>
-              <ButtonText>See in Github</ButtonText>
-            </Button>
-          </UserInfo>
-          <UserStats>
-            <StatsContainer>
-              <StatsName>followers</StatsName>
-              <StatsValue>{user.followers}</StatsValue>
-            </StatsContainer>
-            <StatsContainer>
-              <StatsName>following</StatsName>
-              <StatsValue>{user.following}</StatsValue>
-            </StatsContainer>
-            <StatsContainer>
-              <StatsName>repos</StatsName>
-              <StatsValue>{user.public_repos}</StatsValue>
-            </StatsContainer>
-          </UserStats>
-        </>
-      )}
-    </Container>
+    user && (
+      <Container>
+        <Avatar source={{ uri: user.avatar_url }} />
+        <UserInfo>
+          <Name>{user.name}</Name>
+          <Login>{user.login}</Login>
+          <Bio>{user.bio}</Bio>
+          <Button>
+            <ButtonText>See in Github</ButtonText>
+          </Button>
+        </UserInfo>
+        <UserStats>
+          <StatsContainer>
+            <StatsName>followers</StatsName>
+            <StatsValue>{user.followers}</StatsValue>
+          </StatsContainer>
+          <StatsContainer>
+            <StatsName>following</StatsName>
+            <StatsValue>{user.following}</StatsValue>
+          </StatsContainer>
+          <StatsContainer>
+            <StatsName>repos</StatsName>
+            <StatsValue>{user.public_repos}</StatsValue>
+          </StatsContainer>
+        </UserStats>
+      </Container>
+    )
   );
 };
 

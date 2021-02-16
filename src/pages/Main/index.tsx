@@ -22,7 +22,6 @@ import {
 const Main: React.FC = () => {
   const dispatch = useDispatch();
   const [username, setUsername] = useState('');
-  const [visible, setVisible] = useState(false);
   const [inputError, setInputError] = useState('');
 
   const user = useSelector((state: ApplicationState) => state.user.data);
@@ -51,7 +50,6 @@ const Main: React.FC = () => {
     if (error) {
       setInputError('Error searching user.');
     } else {
-      setVisible(true);
       setInputError('');
     }
   }
@@ -74,9 +72,9 @@ const Main: React.FC = () => {
             </Button>
           </InputContainer>
           <Error>{inputError || ''}</Error>
-          {visible && (
+          {user && (
             <>
-              <User />
+              <User user={user} />
               <RepositoryList />
             </>
           )}
