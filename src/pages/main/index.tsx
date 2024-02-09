@@ -1,9 +1,11 @@
+import { Header } from '../../components/Header';
 import { Container, Title } from './styles';
 
 export default function Main() {
-	return (
-		<Container>
-			<Title>Main</Title>
-		</Container>
-	);
+  return (
+    <Container>
+      <Header />
+      <Title>Main</Title>
+    </Container>
+  );
 }
