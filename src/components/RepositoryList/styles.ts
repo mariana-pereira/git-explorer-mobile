@@ -2,8 +2,7 @@ import styled from 'styled-components/native';
 
 export const Container = styled.View`
   height: 100%;
-  width: 100%;
-  max-width: 280px;
+  width: 90%;
   background: #fff;
   border-radius: 10px;
   padding: 10px 20px;
