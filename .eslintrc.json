@@ -14,25 +14,15 @@
     },
     "plugins": [
         "@typescript-eslint",
-        "react"
+        "react",
+        "simple-import-sort"
     ],
     "rules": {
-        "indent": [
-            "error",
-            2
-        ],
-        "linebreak-style": [
-            "error",
-            "unix"
-        ],
-        "quotes": [
-            "error",
-            "single"
-        ],
-        "semi": [
-            "error",
-            "always"
-        ],
-        "react/react-in-jsx-scope": "off"
-    }
+      "indent": ["error", "tab"],
+      "linebreak-style": ["error", "unix"],
+      "quotes": ["error", "single"],
+      "semi": ["error", "always"],
+      "react/react-in-jsx-scope": "off",
+      "simple-import-sort/imports": "error"
+  }
 }
