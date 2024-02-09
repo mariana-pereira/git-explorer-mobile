@@ -1,11 +1,15 @@
 import { Header } from '../../components/Header';
-import { Container, Title } from './styles';
+import { RepositoryList } from '../../components/RepositoryList';
+import { Container, Content } from './styles';
 
 export default function Main() {
   return (
     <Container>
       <Header />
-      <Title>Main</Title>
+
+      <Content>
+        <RepositoryList />
+      </Content>
     </Container>
   );
 }
