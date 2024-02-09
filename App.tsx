@@ -1,20 +1,25 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { Roboto_400Regular, Roboto_700Bold,useFonts } from '@expo-google-fonts/roboto';
+import { NavigationContainer } from '@react-navigation/native';
+import React from 'react';
+import { ActivityIndicator, StatusBar } from 'react-native';
+import { Provider as ReduxProvider } from 'react-redux';
+
+import { AppRoutes } from './src/routes';
+import { store } from './src/store';
 
 export default function App() {
+  const [fontsLoaded] = useFonts({ Roboto_400Regular, Roboto_700Bold });
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <ReduxProvider store={store}>
+      <NavigationContainer>
+        <StatusBar
+          barStyle="light-content"
+          backgroundColor="transparent"
+          translucent
+        />
+        {fontsLoaded ? <AppRoutes /> : <ActivityIndicator /> }
+      </NavigationContainer>
+    </ReduxProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
