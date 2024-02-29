@@ -6,7 +6,7 @@ export function TextInput() {
   return (
     <InputContainer>
       <Input placeholder="Username" />
-      <Button>
+      <Button on>
         <Search size={20} color="#fff" />
       </Button>
     </InputContainer>

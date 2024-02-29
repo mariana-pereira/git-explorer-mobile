@@ -15,7 +15,7 @@ import {
   UserStats,
 } from './styles';
 
-const User: React.FC = () => {
+export function User() {
   return (
     <Container>
       <Avatar
@@ -48,6 +48,4 @@ const User: React.FC = () => {
       </UserStats>
     </Container>
   );
-};
-
-export default User;
+}
