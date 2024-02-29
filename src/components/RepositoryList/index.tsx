@@ -1,7 +1,7 @@
 import { FlatList } from 'react-native';
 
 import { useAppSelector } from '../../store';
-import { Container, Repository } from './styles';
+import { Container, Description, Language, Name, Repository } from './styles';
 
 export function RepositoryList() {
   const repositories = useAppSelector(state => {
@@ -12,8 +12,16 @@ export function RepositoryList() {
     <Container>
       <FlatList
         data={repositories}
-        renderItem={({ item }) => <Repository>{item.name}</Repository>}
         keyExtractor={(item) => String(item.id)}
+        renderItem={({ item }) => (
+          <Repository>
+            <Name>{item.name}</Name>
+            <Language>Typescript</Language>
+            <Description>
+              Chat App API made with Node.js, Typescript, Express and MongoDB
+            </Description>
+          </Repository>
+        )}
       />
     </Container>
   );
