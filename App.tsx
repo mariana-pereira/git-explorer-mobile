@@ -1,4 +1,4 @@
-import { Roboto_400Regular, Roboto_700Bold,useFonts } from '@expo-google-fonts/roboto';
+import { Roboto_400Regular, Roboto_700Bold, useFonts } from '@expo-google-fonts/roboto';
 import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
 import { ActivityIndicator, StatusBar } from 'react-native';
