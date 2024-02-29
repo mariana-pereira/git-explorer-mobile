@@ -28,21 +28,21 @@ export const UserInfo = styled.View`
 export const Name = styled.Text`
   font-size: 18px;
   color: #111;
-  font-family: 'Roboto-Bold';
+  font-family: 'Roboto_700Bold';
 `;
 
 export const Login = styled.Text`
   font-size: 16px;
   margin-top: 6px;
   color: #444;
-  font-family: 'Roboto-Regular';
+  font-family: 'Roboto_400Regular';
 `;
 
 export const Bio = styled.Text`
   margin-top: 10px;
   color: #444;
   max-width: 100%;
-  font-family: 'Roboto-Regular';
+  font-family: 'Roboto_400Regular';
 `;
 
 export const Button = styled.TouchableOpacity`
@@ -60,7 +60,7 @@ export const Button = styled.TouchableOpacity`
 export const ButtonText = styled.Text`
   color: #fff;
   font-size: 14px;
-  font-family: 'Roboto-Bold';
+  font-family: 'Roboto_700Bold';
 `;
 
 export const UserStats = styled.View`
@@ -78,11 +78,11 @@ export const StatsContainer = styled.View`
 export const StatsName = styled.Text`
   font-size: 18px;
   color: #111;
-  font-family: 'Roboto-Bold';
+  font-family: 'Roboto_700Bold';
 `;
 
 export const StatsValue = styled.Text`
   font-size: 16px;
   color: #444;
-  font-family: 'Roboto-Regular';
+  font-family: 'Roboto_400Regular';
 `;
