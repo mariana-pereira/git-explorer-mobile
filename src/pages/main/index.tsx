@@ -28,7 +28,7 @@ export default function Main() {
         <Header />
         <Content>
           <TextInput />
-          <User />
+          <User user={user} />
           <RepositoryList />
         </Content>
       </Container>

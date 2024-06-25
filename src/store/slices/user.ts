@@ -32,8 +32,9 @@ const userSlice = createSlice({
       avatar_url: '',
       html_url: '',
       bio: '',
-      followers: '',
-      following: '',
+      followers: 0,
+      following: 0,
+      public_repos: 0
     },
     error: false,
     loading: false,
