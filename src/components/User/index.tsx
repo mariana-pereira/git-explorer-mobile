@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
+import { useAppDispatch, useAppSelector } from '../../store';
+import { loadUser } from '../../store/slices/user';
 import {
   Avatar,
   Bio,
@@ -15,7 +17,17 @@ import {
   UserStats,
 } from './styles';
 
-export function User({ user }) {
+export function User() {
+  const dispatch = useAppDispatch();
+
+  const user = useAppSelector(state => {
+    return state.user.data;
+  });
+
+  useEffect(() => {
+    dispatch(loadUser());
+  }, [dispatch]);
+
   return (
     <Container>
       <Avatar
