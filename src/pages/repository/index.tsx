@@ -1,4 +1,5 @@
 import { useRoute } from '@react-navigation/native';
+import { formatDistance } from 'date-fns';
 import { useEffect, useState } from 'react';
 
 import api from '../../libs/axios';
@@ -35,16 +36,18 @@ export function Repository() {
   return (
     <Container>
       <Content>
-        <RepositoryInfo>
-          <Name>Tindev</Name>
-          <Description>
-            Aplicação desenvolvida durante a semana omnistack 8
-          </Description>
-          <InfoContainer>
-            <Info>Javascript</Info>
-            <Info>Updated 12 days ago</Info>
-          </InfoContainer>
-        </RepositoryInfo>
+        {repository && (
+          <RepositoryInfo>
+            <Name>{repository?.name}</Name>
+            <Description>{repository?.description}</Description>
+            <InfoContainer>
+              <Info>{repository?.language}</Info>
+              <Info>
+                {formatDistance(new Date(repository?.pushed_at), Date.now())}
+              </Info>
+            </InfoContainer>
+          </RepositoryInfo>
+        )}
       </Content>
     </Container>
   );
