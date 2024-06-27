@@ -11,12 +11,13 @@ import api from '../../libs/axios';
 //   bio: string;
 //   followers: number;
 //   following: number;
+//   public_repos: number;
 // }
 
 export const loadUser = createAsyncThunk(
   'user/load',
-  async () => {
-    const response = await api.get('users/mariana-pereira');
+  async (login: string) => {
+    const response = await api.get(`users/${login}`);
 
     return response.data;
   }
@@ -41,12 +42,12 @@ const userSlice = createSlice({
   },
 
   reducers: {
-    load: (state, action) => {
-      console.log(state, action);
+    load: (state) => {
+      state.data;
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(loadUser.pending, (state, action) => {
+    builder.addCase(loadUser.pending, (state) => {
       state.loading = true;
     }),
     builder.addCase(loadUser.fulfilled, (state, action) => {

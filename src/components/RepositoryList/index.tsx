@@ -8,15 +8,17 @@ import { Container, Description, Language, Name, Repository } from './styles';
 export function RepositoryList() {
   const dispatch = useAppDispatch();
 
+  const user = useAppSelector(state => {
+    return state.user.data;
+  });
+
   const repositories = useAppSelector(state => {
     return state.repositories.data;
   });
 
   useEffect(() => {
-    dispatch(loadRepositories());
+    dispatch(loadRepositories(user.login));
   }, [dispatch]);
-
-  console.log(repositories);
 
   return (
     <Container>

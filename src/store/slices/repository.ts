@@ -4,8 +4,8 @@ import api from '../../libs/axios';
 
 export const loadRepositories = createAsyncThunk(
   'repositories/load',
-  async () => {
-    const response = await api.get('users/mariana-pereira/repos');
+  async (login: string) => {
+    const response = await api.get(`users/${login}/repos`);
 
     return response.data;
   }
@@ -20,12 +20,12 @@ const repositorySlice = createSlice({
   },
 
   reducers: {
-    load: (state, action) => {
-      console.log(state, action);
+    load: (state) => {
+      state.data;
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(loadRepositories.pending, (state, action) => {
+    builder.addCase(loadRepositories.pending, (state) => {
       state.loading = true;
     }),
     builder.addCase(loadRepositories.fulfilled, (state, action) => {

@@ -1,12 +1,17 @@
 import { Search } from 'lucide-react-native';
+import { TextInputProps } from 'react-native';
 
 import { Button, Input, InputContainer } from './styles';
 
-export function TextInput() {
+interface InputProps extends TextInputProps {
+  fetchUser: () => void;
+}
+
+export function TextInput({ fetchUser, ...rest }: InputProps) {
   return (
     <InputContainer>
-      <Input placeholder="Username" />
-      <Button on>
+      <Input placeholder="Username" {...rest} />
+      <Button onPress={fetchUser}>
         <Search size={20} color="#fff" />
       </Button>
     </InputContainer>
