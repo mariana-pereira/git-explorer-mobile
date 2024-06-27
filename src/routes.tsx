@@ -5,6 +5,7 @@ import { Repository } from './pages/repository';
 
 const { Navigator, Screen } = createNativeStackNavigator();
 
+
 export function AppRoutes() {
   return (
     <Navigator screenOptions={{ headerShown: false }}>

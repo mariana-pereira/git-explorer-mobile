@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { View } from 'react-native';
 import { useDispatch } from 'react-redux';
 
-import { Header } from '../../components/Header';
 import { RepositoryList } from '../../components/RepositoryList';
 import { TextInput } from '../../components/TextInput';
 import { User } from '../../components/User';
@@ -25,7 +24,6 @@ export default function Main() {
   return (
     <View style={{ flex: 1 }}>
       <Container>
-        <Header />
         <Content>
           <TextInput
             placeholder="Username"

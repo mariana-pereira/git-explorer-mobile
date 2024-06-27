@@ -4,6 +4,7 @@ import React from 'react';
 import { ActivityIndicator, StatusBar } from 'react-native';
 import { Provider as ReduxProvider } from 'react-redux';
 
+import { Header } from './src/components/Header';
 import { AppRoutes } from './src/routes';
 import { store } from './src/store';
 
@@ -18,6 +19,7 @@ export default function App() {
           backgroundColor="transparent"
           translucent
         />
+        <Header />
         {fontsLoaded ? <AppRoutes /> : <ActivityIndicator /> }
       </NavigationContainer>
     </ReduxProvider>

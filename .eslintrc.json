@@ -23,6 +23,7 @@
       "quotes": ["error", "single"],
       "semi": ["error", "always"],
       "react/react-in-jsx-scope": "off",
-      "simple-import-sort/imports": "error"
+      "simple-import-sort/imports": "error",
+      "react/prop-types": "off"
   }
 }

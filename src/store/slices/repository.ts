@@ -2,6 +2,19 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 import api from '../../libs/axios';
 
+export interface Repository {
+  id: number;
+  name: string;
+  full_name: string;
+  language: string;
+  description: string;
+  html_url: string;
+  stargazers_count: number;
+  forks_count: number;
+  open_issues_count: number;
+  pushed_at: Date;
+}
+
 export const loadRepositories = createAsyncThunk(
   'repositories/load',
   async (login: string) => {

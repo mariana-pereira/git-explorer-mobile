@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native';
 import { useEffect } from 'react';
 import { FlatList } from 'react-native';
 
@@ -7,6 +8,7 @@ import { Container, Description, Language, Name, Repository } from './styles';
 
 export function RepositoryList() {
   const dispatch = useAppDispatch();
+  const navigation = useNavigation();
 
   const user = useAppSelector(state => {
     return state.user.data;
@@ -20,13 +22,17 @@ export function RepositoryList() {
     dispatch(loadRepositories(user.login));
   }, [dispatch]);
 
+  const handleNavigate = (repository: string) => {
+    navigation.navigate('repository', { repository });
+  };
+
   return (
     <Container>
       <FlatList
         data={repositories}
         keyExtractor={(item) => String(item.id)}
         renderItem={({ item }) => (
-          <Repository>
+          <Repository onPress={() => handleNavigate(item.full_name)}>
             <Name>{item.name}</Name>
             <Language>{item.language}</Language>
             <Description>
