@@ -1,12 +1,13 @@
 import styled from 'styled-components/native';
 
 export const Container = styled.View`
+  background: ${(props) => props.theme.colors.background};
   flex: 1;
   align-items: center;
 `;
 
 export const Content = styled.View`
-  background: #fff;
+  background: ${(props) => props.theme.colors.card};
   border-radius: 10px;
   margin-top: 15px;
   padding: 10px;
@@ -20,15 +21,15 @@ export const RepositoryInfo = styled.View`
 
 export const Name = styled.Text`
   font-size: 20px;
-  color: #111;
-  font-family: 'Roboto_700Bold';
+  color: ${(props) => props.theme.colors.textTitle};
+  font-family: ${(props) => props.theme.fonts.bold};
 `;
 
 export const Description = styled.Text`
   font-size: 16px;
   margin-top: 10px;
-  color: #444;
-  font-family: 'Roboto_400Regular';
+  color: ${(props) => props.theme.colors.text};
+  font-family: ${(props) => props.theme.fonts.regular};
 `;
 
 export const InfoContainer = styled.View`
@@ -39,8 +40,8 @@ export const InfoContainer = styled.View`
 `;
 
 export const Info = styled.Text`
-  color: #444;
-  font-family: 'Roboto_400Regular';
+  color: ${(props) => props.theme.colors.text};
+  font-family: ${(props) => props.theme.fonts.regular};
 `;
 
 export const Button = styled.TouchableOpacity`
@@ -52,12 +53,12 @@ export const Button = styled.TouchableOpacity`
   align-items: center;
   justify-content: center;
   margin-top: 50px;
-  background-color: #28a745;
+  background-color: ${(props) => props.theme.colors.primary};
 `;
 
 export const ButtonText = styled.Text`
-  color: #fff;
-  font-family: 'Roboto_700Bold';
+  color: ${(props) => props.theme.colors.buttonText};
+  font-family: ${(props) => props.theme.fonts.bold};
 `;
 
 export const StatsContainer = styled.View`
@@ -74,11 +75,11 @@ export const Stats = styled.View`
 `;
 
 export const Title = styled.Text`
-  color: #111;
-  font-family: 'Roboto_700Bold';
+  color: ${(props) => props.theme.colors.textTitle};
+  font-family: ${(props) => props.theme.fonts.bold};
 `;
 
 export const Value = styled.Text`
-  color: #444;
-  font-family: 'Roboto_400Regular';
+  color: ${(props) => props.theme.colors.text};
+  font-family: ${(props) => props.theme.fonts.regular};
 `;

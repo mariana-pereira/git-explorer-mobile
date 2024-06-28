@@ -3,7 +3,7 @@ import styled from 'styled-components/native';
 export const Container = styled.View`
   height: 100%;
   width: 95%;
-  background: #fff;
+  background: ${(props) => props.theme.colors.card};
   border-radius: 10px;
   padding: 10px 20px;
   margin-top: 15px;
@@ -18,17 +18,20 @@ export const Repository = styled.TouchableOpacity`
 
 export const Name = styled.Text`
   font-size: 16px;
-  color: #111;
+  color: ${(props) => props.theme.colors.textTitle};
+  font-family: ${(props) => props.theme.fonts.bold};
 `;
 
 export const Language = styled.Text`
   margin-top: 10px;
   font-size: 14px;
-  color: #444;
+  color: ${(props) => props.theme.colors.text};
+  font-family: ${(props) => props.theme.fonts.regular};
 `;
 
 export const Description = styled.Text`
   margin-top: 10px;
   font-size: 14px;
-  color: #444;
+  color: ${(props) => props.theme.colors.text};
+  font-family: ${(props) => props.theme.fonts.regular};
 `;

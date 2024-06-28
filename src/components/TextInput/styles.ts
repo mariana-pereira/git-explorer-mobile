@@ -9,7 +9,7 @@ export const InputContainer = styled.View`
 `;
 
 export const Input = styled.TextInput`
-  background-color: #fff;
+  background-color: ${(props) => props.theme.colors.buttonText};
   width: 300px;
   height: 32px;
   margin-right: 5px;
@@ -23,7 +23,7 @@ export const Button = styled.TouchableOpacity`
   width: 32px;
   border: 0;
   border-radius: 6px;
-  background: #28a745;
+  background: ${(props) => props.theme.colors.primary};
   align-items: center;
   justify-content: center;
 `;
