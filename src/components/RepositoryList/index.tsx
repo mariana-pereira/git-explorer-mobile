@@ -1,12 +1,30 @@
+import { useNavigation } from '@react-navigation/native';
+import { useEffect } from 'react';
 import { FlatList } from 'react-native';
 
-import { useAppSelector } from '../../store';
+import { useAppDispatch, useAppSelector } from '../../store';
+import { loadRepositories } from '../../store/slices/repository';
 import { Container, Description, Language, Name, Repository } from './styles';
 
 export function RepositoryList() {
-  const repositories = useAppSelector(state => {
-    return state.repositories.repositories;
+  const dispatch = useAppDispatch();
+  const navigation = useNavigation<any>();
+
+  const user = useAppSelector(state => {
+    return state.user.data;
   });
+
+  const repositories = useAppSelector(state => {
+    return state.repositories.data;
+  });
+
+  useEffect(() => {
+    dispatch(loadRepositories(user.login));
+  }, [dispatch]);
+
+  const handleNavigate = (repository: string) => {
+    navigation.navigate('Repository', { repository });
+  };
 
   return (
     <Container>
@@ -14,11 +32,11 @@ export function RepositoryList() {
         data={repositories}
         keyExtractor={(item) => String(item.id)}
         renderItem={({ item }) => (
-          <Repository>
+          <Repository onPress={() => handleNavigate(item.full_name)}>
             <Name>{item.name}</Name>
-            <Language>Typescript</Language>
+            <Language>{item.language}</Language>
             <Description>
-              Chat App API made with Node.js, Typescript, Express and MongoDB
+              {item.description}
             </Description>
           </Repository>
         )}

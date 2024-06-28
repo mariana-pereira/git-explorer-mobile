@@ -1,5 +1,4 @@
-import React from 'react';
-
+import { useAppSelector } from '../../store';
 import {
   Avatar,
   Bio,
@@ -15,39 +14,42 @@ import {
   UserStats,
 } from './styles';
 
-const User: React.FC = () => {
+export function User() {
+  const user = useAppSelector(state => {
+    return state.user.data;
+  });
+
+  //console.log(avatar_img);
+
   return (
     <Container>
-      <Avatar
-        source={{
-          uri:
-            'https://avatars0.githubusercontent.com/u/26336279?s=460&u=5b67ae546af49ac00ca125f373a3bbaf45a5f765&v=4',
-        }}
-      />
-      <UserInfo>
-        <Name>Mariana Pereira</Name>
-        <Login>mariana-pereira</Login>
-        <Bio>FullStack Developer | Node.js | ReactJS | React Native</Bio>
-        <Button>
-          <ButtonText>See in Github</ButtonText>
-        </Button>
-      </UserInfo>
-      <UserStats>
-        <StatsContainer>
-          <StatsName>followers</StatsName>
-          <StatsValue>10</StatsValue>
-        </StatsContainer>
-        <StatsContainer>
-          <StatsName>following</StatsName>
-          <StatsValue>54</StatsValue>
-        </StatsContainer>
-        <StatsContainer>
-          <StatsName>repos</StatsName>
-          <StatsValue>99</StatsValue>
-        </StatsContainer>
-      </UserStats>
+      {user && (
+        <>
+          <Avatar source={{ uri: user.avatar_url ? user.avatar_url : 'https://avatars.githubusercontent.com/u/26336279?s=96&v=4'}} />
+          <UserInfo>
+            <Name>{user.name}</Name>
+            <Login>{user.login}</Login>
+            <Bio>{user.bio}</Bio>
+            <Button>
+              <ButtonText>See in Github</ButtonText>
+            </Button>
+          </UserInfo>
+          <UserStats>
+            <StatsContainer>
+              <StatsName>followers</StatsName>
+              <StatsValue>{user.followers}</StatsValue>
+            </StatsContainer>
+            <StatsContainer>
+              <StatsName>following</StatsName>
+              <StatsValue>{user.following}</StatsValue>
+            </StatsContainer>
+            <StatsContainer>
+              <StatsName>repos</StatsName>
+              <StatsValue>{user.public_repos}</StatsValue>
+            </StatsContainer>
+          </UserStats>
+        </>
+      )}
     </Container>
   );
-};
-
-export default User;
+}
