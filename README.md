@@ -9,15 +9,15 @@
 > Explore the repositories of a Github user
 
 <p align="center">
-   <img src=".github/android-home-light.png" width="250"/>
-   <img src=".github/android-home-dark.png" width="250"/>
-   <img src=".github/android-home-search.png" width="250"/>
+   <img src=".github/android_home_light.png" width="250"/>
+   <img src=".github/android_home_dark.png" width="250"/>
+   <img src=".github/android_home_search.png" width="250"/>
 </p>
 
 <p align="center">
-   <img src=".github/ios-home-light.png" width="250"/>
-   <img src=".github/ios-home-dark.png" width="250"/>
-   <img src=".github/ios-home-search.png" width="250"/>
+   <img src=".github/ios_home_light.png" width="250"/>
+   <img src=".github/ios_home_dark.png" width="250"/>
+   <img src=".github/ios_home_search.png" width="250"/>
 </p>
 
 ---
