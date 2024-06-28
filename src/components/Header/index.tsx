@@ -12,12 +12,6 @@ interface Props {
 export function Header({ toggleTheme }: Props) {
   const { colors, title } = useContext(ThemeContext);
 
-  const [isEnabled, setIsEnabled] = useState(false);
-  const toggleSwitch = () => {
-    setIsEnabled((previousState) => !previousState);
-    toggleTheme();
-  };
-
   return (
     <Container>
       <Logo>
@@ -27,8 +21,8 @@ export function Header({ toggleTheme }: Props) {
       <Switch
         trackColor={{ false: colors.primaryDark, true: colors.secondary }}
         thumbColor="#fff"
-        onValueChange={toggleSwitch}
-        value={isEnabled}
+        onValueChange={toggleTheme}
+        value={title === 'dark'}
       />
     </Container>
   );
