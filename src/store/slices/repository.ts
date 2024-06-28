@@ -27,7 +27,19 @@ export const loadRepositories = createAsyncThunk(
 const repositorySlice = createSlice({
   name: 'repositories',
   initialState: {
-    data: [],
+    data: [{
+      id: 0,
+      name: '',
+      full_name: '',
+      language: '',
+      description: '',
+      html_url: '',
+      stargazers_count: 0,
+      forks_count: 0,
+      open_issues_count: 0,
+      watchers_count: 0,
+      pushed_at: '',
+    }],
     error: false,
     loading: false,
   },

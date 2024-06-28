@@ -3,7 +3,7 @@ import { formatDistance } from 'date-fns';
 import { useEffect, useState } from 'react';
 
 import api from '../../libs/axios';
-import { Container, Content, Description, Info,InfoContainer, Name, RepositoryInfo } from './styles';
+import { Button, ButtonText, Container, Content, Description, Info,InfoContainer, Name, RepositoryInfo, Stats, StatsContainer, Title, Value } from './styles';
 
 interface Repository {
   id: number;
@@ -16,6 +16,7 @@ interface Repository {
   forks_count: number;
   open_issues_count: number;
   pushed_at: Date;
+  watchers_count: number;
 }
 
 interface RepositoryParams {
@@ -46,6 +47,27 @@ export function Repository() {
                 {formatDistance(new Date(repository?.pushed_at), Date.now())}
               </Info>
             </InfoContainer>
+            <Button>
+              <ButtonText>See in Github</ButtonText>
+            </Button>
+            <StatsContainer>
+              <Stats>
+                <Title>stars</Title>
+                <Value>{repository.stargazers_count}</Value>
+              </Stats>
+              <Stats>
+                <Title>forks</Title>
+                <Value>{repository.forks_count}</Value>
+              </Stats>
+              <Stats>
+                <Title>issues</Title>
+                <Value>{repository.open_issues_count}</Value>
+              </Stats>
+              <Stats>
+                <Title>watchers</Title>
+                <Value>{repository.watchers_count}</Value>
+              </Stats>
+            </StatsContainer>
           </RepositoryInfo>
         )}
       </Content>

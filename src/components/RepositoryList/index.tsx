@@ -8,7 +8,7 @@ import { Container, Description, Language, Name, Repository } from './styles';
 
 export function RepositoryList() {
   const dispatch = useAppDispatch();
-  const navigation = useNavigation();
+  const navigation = useNavigation<any>();
 
   const user = useAppSelector(state => {
     return state.user.data;
@@ -23,7 +23,7 @@ export function RepositoryList() {
   }, [dispatch]);
 
   const handleNavigate = (repository: string) => {
-    navigation.navigate('repository', { repository });
+    navigation.navigate('Repository', { repository });
   };
 
   return (
