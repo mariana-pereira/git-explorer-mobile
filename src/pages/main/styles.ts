@@ -9,3 +9,8 @@ export const Content = styled.View`
   align-items: center;
   flex: 1;
 `;
+
+export const Error = styled.Text`
+  color: #c53030;
+  margin-top: 8px;
+`;

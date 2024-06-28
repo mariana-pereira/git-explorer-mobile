@@ -1,5 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 import { useEffect } from 'react';
+import React from 'react';
 import { FlatList } from 'react-native';
 
 import { useAppDispatch, useAppSelector } from '../../store';
