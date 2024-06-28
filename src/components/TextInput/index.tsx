@@ -1,4 +1,5 @@
 import { Search } from 'lucide-react-native';
+import React from 'react';
 import { TextInputProps } from 'react-native';
 
 import { Button, Input, InputContainer } from './styles';

@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { useAppSelector } from '../../store';
 import {
   Avatar,
@@ -18,8 +20,6 @@ export function User() {
   const user = useAppSelector(state => {
     return state.user.data;
   });
-
-  //console.log(avatar_img);
 
   return (
     <Container>

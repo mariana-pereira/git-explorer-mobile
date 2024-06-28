@@ -21,7 +21,7 @@ export function RepositoryList() {
 
   useEffect(() => {
     dispatch(loadRepositories(user.login));
-  }, [dispatch]);
+  }, [dispatch, user.login]);
 
   const handleNavigate = (repository: string) => {
     navigation.navigate('Repository', { repository });

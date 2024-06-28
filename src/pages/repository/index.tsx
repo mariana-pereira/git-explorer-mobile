@@ -1,6 +1,7 @@
 import { useRoute } from '@react-navigation/native';
 import { formatDistance } from 'date-fns';
 import { useEffect, useState } from 'react';
+import React from 'react';
 
 import api from '../../libs/axios';
 import { Button, ButtonText, Container, Content, Description, Info,InfoContainer, Name, RepositoryInfo, Stats, StatsContainer, Title, Value } from './styles';
