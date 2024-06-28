@@ -1,27 +1,32 @@
-import { Roboto_400Regular, Roboto_700Bold, useFonts } from '@expo-google-fonts/roboto';
 import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
-import { ActivityIndicator, StatusBar } from 'react-native';
-import { Provider as ReduxProvider } from 'react-redux';
+import { StatusBar } from 'react-native';
+import { Provider } from 'react-redux';
+import { ThemeProvider } from 'styled-components';
 
 import { Header } from './src/components/Header';
 import { AppRoutes } from './src/routes';
 import { store } from './src/store';
+import { dark } from './src/styles/themes/dark';
+import { light } from './src/styles/themes/light';
+import usePersistedState from './src/utils/usePersistedState';
 
 export default function App() {
-  const [fontsLoaded] = useFonts({ Roboto_400Regular, Roboto_700Bold });
+  const [theme, setTheme] = usePersistedState('theme', light);
+
+  const toggleTheme = () => {
+    setTheme(theme.title === 'light' ? dark : light);
+  };
 
   return (
-    <ReduxProvider store={store}>
-      <NavigationContainer>
-        <StatusBar
-          barStyle="light-content"
-          backgroundColor="transparent"
-          translucent
-        />
-        <Header />
-        {fontsLoaded ? <AppRoutes /> : <ActivityIndicator /> }
-      </NavigationContainer>
-    </ReduxProvider>
+    <ThemeProvider theme={theme}>
+      <Provider store={store}>
+        <NavigationContainer>
+          <StatusBar barStyle="light-content" backgroundColor="#28a745" />
+          <Header toggleTheme={toggleTheme} />
+          <AppRoutes />
+        </NavigationContainer>
+      </Provider>
+    </ThemeProvider>
   );
 }
